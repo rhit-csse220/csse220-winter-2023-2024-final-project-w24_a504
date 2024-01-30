@@ -22,7 +22,8 @@ public class MainApp {
 	 */
 	public static void main(String[] args) {
 		MainApp mainApp = new MainApp();
-		mainApp.runApp();		
+		mainApp.runApp();
+		//test
 	} // main
 
 }
