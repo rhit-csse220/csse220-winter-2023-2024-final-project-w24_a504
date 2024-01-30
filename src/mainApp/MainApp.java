@@ -12,7 +12,7 @@ import java.awt.Graphics2D;
 
 /**
  * Class: MainApp
- * @author Put your team name here
+ * @author W504
  * <br>Purpose: Top level class for CSSE220 Project containing main method 
  * <br>Restrictions: None
  */
