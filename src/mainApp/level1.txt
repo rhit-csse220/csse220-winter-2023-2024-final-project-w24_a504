@@ -1,1 +1,11 @@
-Hi I'm Level 1
+electrified_barrier,100,150,50,50,0
+electrified_barrier,200,150,50,50,90
+electrified_barrier,300,150,50,50,180
+non_electric_barrier,100,300,50,50,0
+non_electric_barrier,200,300,50,50,90
+non_electric_barrier,300,300,50,50,180
+coin,100,100,10,10
+coin,150,100,10,10
+coin,200,100,10,10
+coin,250,100,10,10
+coin,300,100,10,10

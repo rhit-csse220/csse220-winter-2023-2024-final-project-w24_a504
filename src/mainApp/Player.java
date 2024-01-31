@@ -1,31 +1,22 @@
 package mainApp;
 
-public class Player {
-    private int lives;
-    private int x;
-    private int y;
-    private int speed;
-    private boolean isMovingRight;
+import java.awt.Color;
 
-    public Player(int lives, int startX, int startY, int speed) {
-        this.lives = lives;
-        this.x = startX;
-        this.y = startY;
-        this.speed = speed;
-        this.isMovingRight = true;
-    }
+public class Player extends Obstacle {
 
-    public void moveRight() {
-        if (isMovingRight) {
-            x += speed;
-        }
-    }
-
-    public void moveUp() {
-        y -= speed; 
-    }
-
-    public void stopMoving() {
-        isMovingRight = false;
-    }
+	protected int frameWidth;
+	protected int frameHeight;
+	protected static int MAX_SPEED = 20;
+	protected static int MIN_SPEED = 0;
+	//TODO
+//	protected int numOfCoins;
+//	protected int numOfLives;
+	// private boolean dead;
+	
+	public Player(int x, int y, int width, int height, int velX, int velY, Color color, int frameWidth, int frameHeight) {
+		super(x, y, width, height, velX, velY, color);
+		this.frameWidth = frameWidth;
+		this.frameHeight = frameHeight;
+	}
+    
 }
