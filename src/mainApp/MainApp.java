@@ -36,7 +36,6 @@ public class MainApp extends JPanel {
 	private static final Color TOKEN_COLOR = (Color.YELLOW);
 	private int tokens = 0;
 	
-	private static final int delay = 35;
 	private static final int PANEL_Height = 800;
 	private static final int PANEL_Width = 800;
 	public static final int startingLevel = 1;
