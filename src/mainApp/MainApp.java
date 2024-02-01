@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -35,26 +36,34 @@ public class MainApp extends JPanel {
 	private static final Color TOKEN_COLOR = (Color.YELLOW);
 	private int tokens = 0;
 	
+	private static final int delay = 35;
+	private static final int PANEL_Height = 800;
+	private static final int PANEL_Width = 800;
+	public static final int startingLevel = 1;
 	
 	private void runApp() {
-		System.out.println("Write your cool arcade game here!");	
-		System.out.println("Write your cool arcade game here!");	
-		System.out.println("Write your cool arcade game here!");
-		final String frameTitle = "Graphics Display";
-        final int frameWidth = 1000;
-        final int frameHeight = 600;
-        final int frameXLoc = 200;
-        final int frameYLoc = 100;
 
-        // Creating the JFrame
-        JFrame frame = new JFrame();
-        frame.setTitle(frameTitle);
-        frame.setSize(frameWidth, frameHeight);
-        frame.setLocation(frameXLoc, frameYLoc);
+        JFrame frame = new JFrame("JPJR");
+        MainApp panel = new MainApp(PANEL_Height, PANEL_Width,frame, startingLevel);
+        panel.setPreferredSize(new Dimension(PANEL_Height, PANEL_Width));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(this);
         frame.setVisible(true);
 		
+        try {
+        	panel.loadLevel();
+        } catch(InvalidLevelFormatException e) {
+        	System.err.print("One of the strings are off by " + e.distanceOff());
+        }
+        KeyboardListener key = new KeyboardListener(panel);
+        frame.addKeyListener(key);
+        panel.addKeyListener(key);
+        panel.setFocusable(true);
+        
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	} // runApp
 	 private void loadLevel()throws InvalidLevelFormatException {
 	        Scanner scanner = null;
@@ -83,10 +92,18 @@ public class MainApp extends JPanel {
 	        				this.screenWidth / TILES_ON_SCREEN, Color.BLACK));
 	        	}else if (currentChar == 'T') {
 	        		// add code to add token
+	        		this.Obstacles.add(new Coin(j* this.screenHeight / TILES_ON_SCREEN,
+	        				line * this.screenHeight / TILES_ON_SCREEN , 0 , 0, 
+	        				this.screenWidth / TILES_ON_SCREEN,
+	        				this.screenWidth / TILES_ON_SCREEN, TOKEN_COLOR));
 	        	}else if (currentChar == 'E') {
 	        		// add code to add elec barrier
 	        	}else if (currentChar == 'P') {
-	        		// add code for player
+	        		this.player = new Player(j * this.screenWidth / TILES_ON_SCREEN,
+	        				line * this.screenHeight / TILES_ON_SCREEN, 2, 0,
+	        				(this.screenHeight / TILES_ON_SCREEN) / 2,
+	        				this.screenHeight / TILES_ON_SCREEN, Color.RED, this.screenWidth,
+	        				this.screenHeight, 0 );
 	        	}
 	        }
 	        	line++;
@@ -94,7 +111,13 @@ public class MainApp extends JPanel {
 	        this.objects = false;
 	        scanner.close();
 	 }
-	        
+	 public MainApp(int panelHeight, int panelWidth, JFrame frame, int startingLevel ) {
+		 this.PANEL_Height = panelHeight;
+		 this.PANEL_Width = panelWidth;
+		 this.Obstacles = new ArrayList<Obstacle>();
+		 this.On = frame;
+		 this.setLevel(startingLevel);
+	 }
 	        
 	@Override
     protected void paintComponent(Graphics g) {
@@ -109,7 +132,7 @@ public class MainApp extends JPanel {
 	public static void main(String[] args) {
 		MainApp mainApp = new MainApp();
 		mainApp.runApp();
-		//test
+		
 	} // main
 	public Player getPlayer() {
 		return this.player;
@@ -128,10 +151,10 @@ public class MainApp extends JPanel {
 		@Override
 		public void keyPressed(KeyEvent e) { 
 			if(e.getKeyCode()== KeyEvent.VK_UP) {
-				//this.component.getPlayer().setVelY(BARRY_VEL);
+				this.component.getPlayer().setVelY(BARRY_VEL);
 			}
 			if(e.getKeyCode() == KeyEvent.VK_U) {
-				// CONT HERE
+//				if(this.component.getlev)
 			}
 		}
 		@Override

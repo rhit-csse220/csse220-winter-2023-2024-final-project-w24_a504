@@ -10,20 +10,20 @@ public abstract class Obstacle {
 	protected int width;
 	protected int height;
 	protected Color color;
-	protected int velX;
-	protected int velY;
+	protected int VelX;
+	protected int VelY;
 	protected Rectangle2D.Double rectangle;
 	protected boolean loadNextLevel;
 	protected boolean Draw;
 	
 	
-	public Obstacle(int x, int y, int width, int height, int velX, int velY, Color color) {
+	public Obstacle(int x, int y, int width, int height, int VelX, int VelY, Color color) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-      	this.velX = velX;
-		this.velY = velY;
+      	this.VelX = VelX;
+		this.VelY = VelY;
 		this.color = color;
 		this.rectangle = new Rectangle2D.Double(this.x, this.y, this.width, this.height);
 		this.Draw = true;
@@ -50,13 +50,17 @@ public abstract class Obstacle {
 	public int getHeight() {
 		return this.height;
 	}
-	public int getvelX() {
-		return this.velX;
+	public int getVelX() {
+		return this.VelX;
 	}
-	public int getvelY() {
-		return this.velY;
+	public int getVelY() {
+		return this.VelY;
 	}
 	public Color getColor() {
 		return this.color;
+	}
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 }
