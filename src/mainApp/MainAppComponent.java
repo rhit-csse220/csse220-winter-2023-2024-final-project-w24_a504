@@ -31,12 +31,16 @@ public class MainAppComponent extends JPanel {
 	private static final int PANEL_WIDTH = 800;
 	public static final int startingLevel = 1;
 	
-	public MainAppComponent(int panelHeight, int panelWidth, JFrame frame, int startingLevel ) {
-		 this.panelHeight = panelHeight;
-		 this.panelWidth= panelWidth;
-		 this.Obstacles = new ArrayList<Obstacle>();
-		 this.On = frame;
+	public MainAppComponent( ) {
+		 //this.panelHeight = panelHeight;
+		// this.panelWidth= panelWidth;
+		 //this.Obstacles = new ArrayList<Obstacle>();
+		 //this.On = frame;
+		 this.loadLevel(levelNumber);
 		 this.setLevelNum(startingLevel);
+		 this.setFocusable(true);
+		 this.addKeyListener(player);
+		 
 	 }
 	public Player getPlayer() {
 		return this.player;
@@ -47,7 +51,7 @@ public class MainAppComponent extends JPanel {
 	public int getLevelNum() {
 		return levelNum;
 	}
-	 public void loadLevel() throws InvalidLevelFormatException {
+	 public void loadLevel(int levelNumber) throws InvalidLevelFormatException {
 	        Scanner scanner = null;
 	        this.objects = true;
 	        

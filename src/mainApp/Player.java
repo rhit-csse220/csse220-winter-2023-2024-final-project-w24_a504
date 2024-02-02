@@ -1,8 +1,9 @@
 package mainApp;
 
 import java.awt.Color;
+import java.awt.event.KeyListener;
 
-public class Player extends Obstacle {
+public class Player  extends Obstacle implements KeyListener{
 
 	protected int frameWidth;
 	protected int frameHeight;

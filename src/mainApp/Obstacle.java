@@ -33,6 +33,7 @@ public abstract class Obstacle {
 	public void drawOn(Graphics2D g) {
 		g.setColor(this.color);
 		g.fillRect(this.x,this.y,this.width,this.height);
+		System.out.print("I'm being drawn");
 	}
 	public int getX() {
 		return this.x;

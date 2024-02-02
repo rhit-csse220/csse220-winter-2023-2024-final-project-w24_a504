@@ -17,23 +17,23 @@ public class MainApp{
 	private void runApp() {
 
         JFrame frame = new JFrame("JPJR");
-        MainAppComponent panel = new MainAppComponent(PANEL_HEIGHT, PANEL_WIDTH,frame, startingLevel);
-        panel.setPreferredSize(new Dimension(PANEL_HEIGHT, PANEL_WIDTH));
+        MainAppComponent component = new MainAppComponent(PANEL_HEIGHT, PANEL_WIDTH,frame, startingLevel);
+        component.setPreferredSize(new Dimension(PANEL_HEIGHT, PANEL_WIDTH));
       
        
 		
         try {
-        	panel.loadLevel();
+        	component.loadLevel();
         } catch(InvalidLevelFormatException e) {
         	System.err.print("One of the strings are off by " + e.distanceOff());
         }
         
-        MainKeyboardListener key = new MainKeyboardListener(panel);
+        MainKeyboardListener key = new MainKeyboardListener(component);
         frame.addKeyListener(key);
-        panel.addKeyListener(key);
-        panel.setFocusable(true);
+        component.addKeyListener(key);
+        component.setFocusable(true);
         
-        frame.add(panel);
+        frame.add(component);
         frame.pack();
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
