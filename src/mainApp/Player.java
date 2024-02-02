@@ -8,17 +8,18 @@ public class Player extends Obstacle {
 	protected int frameHeight;
 	protected static int MAX_SPEED = 20;
 	protected static int MIN_SPEED = 0;
-	protected static int ACCEL = 2;
+	public static int ACCEL = 2;
 	//TODO
 //	protected int numOfCoins;
 //	protected int numOfLives;
 	// private boolean dead;
 	
-	public Player(int x, int y, int width, int height, int velX, int velY, Color color, int frameWidth, int frameHeight, int ACCEL) {
-		super(x, y, width, height, velX, velY, color);
+	public Player(int x, int y, int width, int height, int VelX, int VelY, Color color, int frameWidth, int frameHeight, int ACCEL) {
+		super(x, y, width, height, VelX, VelY, color);
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
 	}
+	
 	@Override
 	public void update() {
 		if(this.getVelY() >= MIN_SPEED && this.getVelY() <= MAX_SPEED) {
@@ -28,11 +29,15 @@ public class Player extends Obstacle {
 			this.setY(0);
 		}
 		if(this.getVelX() + this.getWidth() > this.frameWidth) {
-			this.setX(this.frameWidth - this.getWidth());
+			this.setY(this.frameWidth - this.getWidth());
 		}
 		if(this.getY()+ this.getHeight() > this.frameHeight) {
 			this.setY(this.frameHeight - this.getHeight());
 		}
+	}
+	@Override
+	public String toString() {
+		return "player";
 	}
     
 }

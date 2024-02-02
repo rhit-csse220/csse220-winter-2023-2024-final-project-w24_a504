@@ -29,14 +29,10 @@ public abstract class Obstacle {
 		this.Draw = true;
 		this.loadNextLevel = false;
 	}
-	protected void paintComponent(Graphics g) {
-		Graphics2D g2 = (Graphics2D) g;
-
-}
 	
 	public void drawOn(Graphics2D g) {
-		Graphics2D g2 = (Graphics2D) g;
-		g2.drawRect(10,5,10,10);
+		g.setColor(this.color);
+		g.fillRect(this.x,this.y,this.width,this.height);
 	}
 	public int getX() {
 		return this.x;
@@ -58,6 +54,18 @@ public abstract class Obstacle {
 	}
 	public Color getColor() {
 		return this.color;
+	}
+	public void setVelX(int num) {
+		this.VelX = num;
+	}
+	public void setVelY(int num) {
+		this.VelY = num;
+	}
+	public void setX(int num) {
+		this.x = num;
+	}
+	public void setY(int num) {
+		this.y = num;
 	}
 	public void update() {
 		// TODO Auto-generated method stub
