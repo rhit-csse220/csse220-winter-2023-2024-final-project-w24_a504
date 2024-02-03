@@ -27,7 +27,7 @@ public class MainApp{
         frame.add(component, BorderLayout.CENTER);
        
         
-        frame.addKeyListener(new MainKeyboardListener(1,component.level.player));
+        frame.addKeyListener(new MainKeyboardListener(component.level.player, component.level));
         
         
         frame.setVisible(true);

@@ -15,7 +15,7 @@ public class Level {
 	private static final int ITEM_HEIGHT = 90;
 	private ArrayList<Obstacle> obstacles =  new ArrayList<>();;
 	private static final int NUMBER_OF_LEVELS = 5;
-	private int levelIndexer;
+	public int levelIndexer;
 	public Player player;
 	private boolean isPressed;
 	public JFrame frame;
@@ -82,14 +82,14 @@ public class Level {
 		return this.obstacles;
 	}
 
-	public void runApp() {
-		String NameOfFile = "levels/level1.txt";
-		try {
-			readFile(NameOfFile);
-		}catch (InvalidLevelFormatException e) {
-			e.printStackTrace();
-		}
-	}
+//	public void runApp() {
+//		String NameOfFile = "levels/level1.txt";
+//		try {
+//			readFile(NameOfFile);
+//		}catch (InvalidLevelFormatException e) {
+//			e.printStackTrace();
+//		}
+//	}
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;
 		player.drawnOn(g2);

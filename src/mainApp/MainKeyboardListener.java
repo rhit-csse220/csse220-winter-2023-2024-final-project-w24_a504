@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainKeyboardListener implements KeyListener {
+		public Level level;
 	    private Player player;
 		private static final int ITEM_WIDTH = 100;
 		private static final int ITEM_HEIGHT = 90;
-		private int levelIndexer;
+	//	private int levelIndexer;
 		private boolean isPressed;
 //		private ArrayList<Barrier> barrier;
 //		private ArrayList<Player> player;
@@ -19,12 +20,12 @@ public class MainKeyboardListener implements KeyListener {
 		private static final int NUMBER_OF_LEVELS = 5;
 		
 		
-		public MainKeyboardListener(int x, Player player) {
+		public MainKeyboardListener(Player player, Level level) {
 //			barrier = new ArrayList<Barrier>();
 		//	obstacles = new ArrayList<Obstacle>();
-			this.levelIndexer = x;
 			this.isPressed = false;
 			this.player = player;
+			this.level = level;
 		}
 		@Override
 		public void keyPressed(KeyEvent e) { 	
@@ -57,18 +58,33 @@ public class MainKeyboardListener implements KeyListener {
 		        //the code below loads level 		
 		        case KeyEvent.VK_U:
 				System.out.print("U is selected");
-				if(this.levelIndexer < NUMBER_OF_LEVELS) {
-					this.levelIndexer++;
+				if(this.level.levelIndexer < NUMBER_OF_LEVELS) {
+					this.level.levelIndexer++;
+					String NameOfFile = "levels/level2.txt";
+					try {
+						this.level.readFile(NameOfFile);
+					} catch (InvalidLevelFormatException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					//break;
 				}
 				break;
 				
 				
 				case KeyEvent.VK_D:
-					if(this.levelIndexer != 1) {
-						this.levelIndexer--;
+					System.out.print("D is selected");
+					if(this.level.levelIndexer != 0) {
+						this.level.levelIndexer--;
+						String NameOfFile = "levels/level1.txt";
+						try {
+							this.level.readFile(NameOfFile);
+						} catch (InvalidLevelFormatException e1) {
+							e1.printStackTrace();
+						}
 					}else {
-						this.levelIndexer = 1;
+						this.level.levelIndexer = 0;
+						
 					}
 				break;
 				
