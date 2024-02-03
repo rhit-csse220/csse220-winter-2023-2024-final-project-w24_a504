@@ -47,9 +47,11 @@ public class Player  extends Obstacle implements KeyListener{
                 lastMoveX = 1;
                 lastMoveY = 0;
                 break;
+                
         }
-
-        System.out.println("Player's new position: X=" + this.getX() + ", Y=" + this.getY());
+        
+        	
+//        System.out.println("Player's new position: X=" + this.getX() + ", Y=" + this.getY());
     }
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -64,7 +66,7 @@ public class Player  extends Obstacle implements KeyListener{
         this.setY(this.getY() + lastMoveY * MOVE_INCREMENT);
 
         // Log the automatic update for debugging
-        System.out.println("Player auto-updated to: X=" + this.getX() + ", Y=" + this.getY());
+//        System.out.println("Player auto-updated to: X=" + this.getX() + ", Y=" + this.getY());
     }
 	@Override
 	public String toString() {

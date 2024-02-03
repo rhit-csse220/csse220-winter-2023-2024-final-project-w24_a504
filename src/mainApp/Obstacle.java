@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Rectangle2D.Double;
+import java.util.ArrayList;
 public abstract class Obstacle {
 	protected double x;
 	protected double y;
@@ -18,6 +20,7 @@ public abstract class Obstacle {
 	protected boolean loadNextLevel;
 	protected boolean Draw;
 	private int size;
+
 	
 	
 	public Obstacle(int x, int y, Color color) {
@@ -27,13 +30,18 @@ public abstract class Obstacle {
 		this.VelX = 0;
 		this.size = 25;
 		this.color = color;		
+	
 	}
 	
 	public void drawnOn(Graphics2D g) {
 		g.setColor(this.color);
-		Rectangle2D.Double newBox = new Rectangle.Double(x,y,25,25);
+		Rectangle2D.Double newBox = new Rectangle.Double(x,y,50,50);
 		g.fill(newBox);
 		g.draw(newBox);
+		
+//		g.setColor(this.color);
+//		Ellipse2D.Double newCoin = new Ellipse2D.Double(x, y, 10,10);
+//		g.fill(newCoin);
 	}
 	
 	

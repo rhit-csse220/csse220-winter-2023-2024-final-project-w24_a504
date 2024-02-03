@@ -13,12 +13,15 @@ public class MainKeyboardListener implements KeyListener {
 		private static final int ITEM_HEIGHT = 90;
 		private int levelIndexer;
 		private boolean isPressed;
-		private ArrayList<Barrier> barrier;
+//		private ArrayList<Barrier> barrier;
+//		private ArrayList<Player> player;
+		private ArrayList<Obstacle> obstacles =  new ArrayList<>();;
 		private static final int NUMBER_OF_LEVELS = 5;
 		
 		
 		public MainKeyboardListener(int x) {
-			barrier = new ArrayList<Barrier>();
+//			barrier = new ArrayList<Barrier>();
+			obstacles = new ArrayList<Obstacle>();
 			this.levelIndexer = x;
 			this.isPressed = false;
 		}
@@ -73,17 +76,23 @@ public class MainKeyboardListener implements KeyListener {
 				String line = scanner.nextLine();
 				for(int j = 0; j < line.length(); j++) {
 					if(line.charAt(j) == 'B') {
-						Barrier newBarrier = new Barrier(j * ITEM_WIDTH, row * ITEM_HEIGHT);
-					    this.barrier.add(newBarrier);
+						Obstacle newBarrier = new Barrier((j * ITEM_WIDTH), row * ITEM_HEIGHT);
+					    this.obstacles.add(newBarrier);
 					    
 					    System.out.println("Barrier at X: " + newBarrier.getX() + " Y: " + newBarrier.getY());
 					}
 					else if (line.charAt(j) == 'P') {
-						Barrier newPlayer = new Barrier(j* ITEM_WIDTH, row * ITEM_HEIGHT);
-						this.barrier.add(newPlayer);
+						Obstacle newPlayer = new Player(j* ITEM_WIDTH, row * ITEM_HEIGHT);
+						this.obstacles.add(newPlayer);
 					}
 					else if (line.charAt(j) == 'C') {
-//						this.barrier.add(new Coin(j,j));
+						Obstacle newCoin = new Coin(j* ITEM_WIDTH, row * ITEM_HEIGHT);
+						this.obstacles.add(newCoin);
+						
+					}else if (line.charAt(j) == 'E') {
+						Obstacle newElectrifiedBarrier = new ElectrifiedBarrier(j* ITEM_WIDTH, row * ITEM_HEIGHT);
+						System.out.println("E");
+						this.obstacles.add(newElectrifiedBarrier);
 					}
 				}
 				row++;
@@ -91,6 +100,7 @@ public class MainKeyboardListener implements KeyListener {
 			scanner.close();
 		}
 		public int getIndex() {
+			System.out.println(levelIndexer);
 			return this.levelIndexer;
 		}
 		public boolean getIsPressed() {
@@ -99,9 +109,12 @@ public class MainKeyboardListener implements KeyListener {
 		public Player getPlayer() {
 		return this.player;
 	}
-		public ArrayList<Barrier> createLevel(){
-			return this.barrier;
+		public ArrayList<Obstacle> createLevel(){
+			return this.obstacles;
 		}
+//		public ArrayList<Player> createLevel(){
+//			return this.player;
+//		}
 		public void runApp() {
 			String NameOfFile = "levels/level1.txt";
 			try {

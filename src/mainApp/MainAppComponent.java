@@ -41,6 +41,7 @@ public class MainAppComponent extends JComponent {
 
 		 this.setLevelNum(startingLevel);
 		obstacles.add(new Player(800,0));
+		
 		 this.level.runApp();
 		 setFocusable(true);
 		 this.addKeyListener((Player)obstacles.get(0));
