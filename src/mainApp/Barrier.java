@@ -7,5 +7,10 @@ public class Barrier extends Obstacle {
 	public Barrier(int x, int y) {
 		super(x, y, BARRIER_COLOR);
 	}
+//	@Override
+//	public void drawOn(Graphics2D g) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }

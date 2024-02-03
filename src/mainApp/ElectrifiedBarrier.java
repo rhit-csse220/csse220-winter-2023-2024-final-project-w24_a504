@@ -9,4 +9,10 @@ public class ElectrifiedBarrier extends Obstacle {
 		super(x, y,ELECTRICBARRIER_COLOR );
 		
 	}
+//	@Override
+//	public void drawOn(Graphics2D g) {
+//		
+//		// TODO Auto-generated method stub
+//		
+//	}
 }

@@ -36,12 +36,10 @@ public abstract class Obstacle {
 	public void drawnOn(Graphics2D g) {
 		g.setColor(this.color);
 		Rectangle2D.Double newBox = new Rectangle.Double(x,y,50,50);
+		//System.out.println("Obstacle x " + x + "Obstacle y" + y);
 		g.fill(newBox);
 		g.draw(newBox);
 		
-//		g.setColor(this.color);
-//		Ellipse2D.Double newCoin = new Ellipse2D.Double(x, y, 10,10);
-//		g.fill(newCoin);
 	}
 	
 	
@@ -84,10 +82,13 @@ public abstract class Obstacle {
 	protected void setSize(int size) {
 		this.size = size;
 	}
-	public void update() {
-		// TODO Auto-generated method stub
-		this.x += VelX;
-		this.y += VelY;
-		
-	}
+//	public void update() {
+//		// TODO Auto-generated method stub
+////		System.out.println("called");
+//		this.x += VelX;
+//		this.y += VelY;
+//		
+//	}
+
+	
 }

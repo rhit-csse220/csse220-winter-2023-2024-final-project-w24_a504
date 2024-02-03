@@ -19,31 +19,30 @@ public class MainApp{
 	private static final int PANEL_WIDTH = 800;
 	public static final int startingLevel = 1;
 	
-	private void runApp() {
+	public MainApp() throws InvalidLevelFormatException {
 
         JFrame frame = new JFrame("JPJR");
         frame.setSize(1000,1000);
-        MainAppComponent component = new MainAppComponent();
-        Timer timer = new Timer(15, new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		component.update();
-        	}
-        });
-        timer.start();
-        
+        MainAppComponent component = new MainAppComponent(frame);
         frame.add(component, BorderLayout.CENTER);
+       
+        
+        frame.addKeyListener(new MainKeyboardListener(1,component.level.player));
+        
+        
         frame.setVisible(true);
+        UpdateActionListener updateListener = new UpdateActionListener(component);
+        Timer timer = new Timer(50, updateListener);
+        timer.start();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
 	} // runApp
 	/**
 	 * ensures: runs the application
 	 * @param args unused
+	 * @throws InvalidLevelFormatException 
 	 */
-	public static void main(String[] args) {
-		MainApp mainApp = new MainApp();
-		mainApp.runApp();
-		
+	public static void main(String[] args) throws InvalidLevelFormatException {
+		 new MainApp();
 	} // main
 }

@@ -10,5 +10,10 @@ public class Coin extends Obstacle {
 		super(x, y, COIN_COLOR);
 		// TODO Auto-generated constructor stub
 	}
+//	@Override
+//	public void drawOn(Graphics2D g) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }
