@@ -14,7 +14,7 @@ public class Player {
 	private static final int MOVE_INCREMENT = 15;
 	protected static int MAX_SPEED = 20;
 	protected static int MIN_SPEED = 0;
-	public static int ACCEL = 2;
+	public static int ACCEL = 3;
 	private int lastMoveX = 0; 
     private int lastMoveY = 0;
     private int x;
