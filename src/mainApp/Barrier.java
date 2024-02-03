@@ -1,9 +1,11 @@
 
 package mainApp;
 import java.awt.Color;
+import java.awt.Graphics2D;
 public class Barrier extends Obstacle {
-	
-	public Barrier(int x, int y, int width, int height, int velX, int velY, Color color) {
-		super(x, y, width, height,velX, velY, color);
+	private final static Color BARRIER_COLOR = Color.red;
+	public Barrier(int x, int y) {
+		super(x, y, BARRIER_COLOR);
 	}
+
 }

@@ -1,6 +1,11 @@
 package mainApp;
 import javax.swing.JFrame;
+import javax.swing.Timer;
+
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Class: MainApp
@@ -17,24 +22,17 @@ public class MainApp{
 	private void runApp() {
 
         JFrame frame = new JFrame("JPJR");
-        MainAppComponent component = new MainAppComponent(PANEL_HEIGHT, PANEL_WIDTH,frame, startingLevel);
-        component.setPreferredSize(new Dimension(PANEL_HEIGHT, PANEL_WIDTH));
-      
-       
-		
-        try {
-        	component.loadLevel();
-        } catch(InvalidLevelFormatException e) {
-        	System.err.print("One of the strings are off by " + e.distanceOff());
-        }
+        frame.setSize(1000,1000);
+        MainAppComponent component = new MainAppComponent();
+        Timer timer = new Timer(15, new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		component.update();
+        	}
+        });
+        timer.start();
         
-        MainKeyboardListener key = new MainKeyboardListener(component);
-        frame.addKeyListener(key);
-        component.addKeyListener(key);
-        component.setFocusable(true);
-        
-        frame.add(component);
-        frame.pack();
+        frame.add(component, BorderLayout.CENTER);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

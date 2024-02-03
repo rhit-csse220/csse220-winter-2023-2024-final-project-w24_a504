@@ -3,42 +3,44 @@ package mainApp;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Rectangle2D.Double;
 public abstract class Obstacle {
-	protected int x;
-	protected int y;
+	protected double x;
+	protected double y;
 	protected int width;
 	protected int height;
 	protected Color color;
-	protected int VelX;
-	protected int VelY;
+	protected double VelX;
+	protected double VelY;
 	protected Rectangle2D.Double rectangle;
 	protected boolean loadNextLevel;
 	protected boolean Draw;
+	private int size;
 	
 	
-	public Obstacle(int x, int y, int width, int height, int VelX, int VelY, Color color) {
+	public Obstacle(int x, int y, Color color) {
 		this.x = x;
 		this.y = y;
-		this.width = width;
-		this.height = height;
-      	this.VelX = VelX;
-		this.VelY = VelY;
-		this.color = color;
-		this.rectangle = new Rectangle2D.Double(this.x, this.y, this.width, this.height);
-		this.Draw = true;
-		this.loadNextLevel = false;
+		this.VelY = 0;
+		this.VelX = 0;
+		this.size = 25;
+		this.color = color;		
 	}
 	
-	public void drawOn(Graphics2D g) {
+	public void drawnOn(Graphics2D g) {
 		g.setColor(this.color);
-		g.fillRect(this.x,this.y,this.width,this.height);
-		System.out.print("I'm being drawn");
+		Rectangle2D.Double newBox = new Rectangle.Double(x,y,25,25);
+		g.fill(newBox);
+		g.draw(newBox);
 	}
-	public int getX() {
+	
+	
+	public double getX() {
 		return this.x;
 	}
-	public int getY() {
+	public double getY() {
 		return this.y;
 	}
 	public int getWidth() {
@@ -47,29 +49,37 @@ public abstract class Obstacle {
 	public int getHeight() {
 		return this.height;
 	}
-	public int getVelX() {
+	public double getVelX() {
 		return this.VelX;
 	}
-	public int getVelY() {
+	public double getVelY() {
 		return this.VelY;
 	}
 	public Color getColor() {
 		return this.color;
 	}
-	public void setVelX(int num) {
+	public void setVelX(double num) {
 		this.VelX = num;
 	}
-	public void setVelY(int num) {
+	public void setVelY(double num) {
 		this.VelY = num;
 	}
-	public void setX(int num) {
-		this.x = num;
+	public void setX(double d) {
+		this.x = d;
 	}
-	public void setY(int num) {
-		this.y = num;
+	public void setY(double d) {
+		this.y = d;
+	}
+	protected int getSize() {
+		return size;
+	}
+	protected void setSize(int size) {
+		this.size = size;
 	}
 	public void update() {
 		// TODO Auto-generated method stub
+		this.x += VelX;
+		this.y += VelY;
 		
 	}
 }

@@ -12,7 +12,7 @@ public class MainActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.screen.update();
-		this.screen.drawScreen();
+		//this.screen.drawScreen();
 	}
 
 }

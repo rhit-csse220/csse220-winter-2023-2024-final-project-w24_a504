@@ -1,12 +1,12 @@
 package mainApp;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 public class ElectrifiedBarrier extends Barrier {
-
-	public ElectrifiedBarrier(int x, int y, int width, int height, int velX, int velY, Color color) {
-		super(x, y, width, height, velX, velY, color);
+	private final static Color ELECTRICBARRIER_COLOR = Color.CYAN;
+	public ElectrifiedBarrier(int x, int y) {
+		super(x, y);
 		
 	}
-
 }
