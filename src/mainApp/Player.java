@@ -31,15 +31,7 @@ public class Player {
 		
 	}
 
-//	@Override
-//	public void update() {
-//        // Apply continuous movement based on the last direction moved
-//        this.setX(this.getX() + lastMoveX * MOVE_INCREMENT);
-//        this.setY(this.getY() + lastMoveY * MOVE_INCREMENT);
-//
-//        // Log the automatic update for debugging
-//    //    System.out.println("Player auto-updated to: X=" + this.getX() + ", Y=" + this.getY());
-//    }
+
 	@Override
 	public String toString() {
 		return "player";

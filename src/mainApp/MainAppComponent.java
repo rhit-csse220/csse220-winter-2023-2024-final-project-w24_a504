@@ -60,18 +60,14 @@ public class MainAppComponent extends JComponent {
 	            super.paintComponent(g);
 	        	Graphics2D g2 = (Graphics2D) g;
 	        	level.drawnOn(g2);
-//	        	for(int i = 0; i < this.level.createLevel().size(); i++) {
-//	        		this.level.createLevel().get(i).drawnOn(g2);	        	
-//	        		}
-//	        	frame.repaint();
+
 	        
 
 	        }
 
 			public void update() {
 				// TODO Auto-generated method stub
-				
-				
+		
 				this.repaint();
 			}
 }
