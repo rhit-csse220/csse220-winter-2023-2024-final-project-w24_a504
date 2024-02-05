@@ -33,7 +33,11 @@ public class MainKeyboardListener implements KeyListener {
 		        switch (currentKey) {
 		        // the code below moves the player 
 		            case KeyEvent.VK_UP:
+		            	if( player.getY() >= 0) {
 		               player.setY(player.getY() - 10);
+		               break;
+		            	}
+//		            	player.setY(player.getY() - 10);
 		               System.out.println(" up Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		               
 		                break;
@@ -49,7 +53,10 @@ public class MainKeyboardListener implements KeyListener {
 		                break;
 		                
 		            case KeyEvent.VK_RIGHT:
+		            	if (player.getX() <= 950) {
 		            	player.setX(player.getX() + 10);
+		            	break;
+		            	}
 		            	System.out.println(" right Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		                break;
 		        	
@@ -95,7 +102,15 @@ public class MainKeyboardListener implements KeyListener {
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
-
+			int currentKey = e.getKeyCode();
+	        switch (currentKey) {
+	        // the code below moves the player 
+	            case KeyEvent.VK_UP:
+	               player.setY(player.getY() + 5);
+	               System.out.println(" up Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+	               
+	                break;
+	        }
 			}
 			
 		@Override

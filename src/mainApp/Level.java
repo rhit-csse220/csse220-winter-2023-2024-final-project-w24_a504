@@ -62,6 +62,11 @@ public class Level {
 					Obstacle newElectrifiedBarrier = new ElectrifiedBarrier(j* ITEM_WIDTH, row * ITEM_HEIGHT);
 					//System.out.println("E");
 					this.obstacles.add(newElectrifiedBarrier);
+					
+				}else if (line.charAt(j) == 'M') {
+					Obstacle newMissile = new Missile(j* ITEM_WIDTH, row * ITEM_HEIGHT);
+					//System.out.println("E");
+					this.obstacles.add(newMissile);
 				}
 			}
 			row++;
