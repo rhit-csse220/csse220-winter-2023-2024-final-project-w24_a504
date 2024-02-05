@@ -11,6 +11,7 @@ public class UpdateActionListener implements ActionListener {
  }
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		component.level.player.playerGravity();
  		component.update();
 		
 	}

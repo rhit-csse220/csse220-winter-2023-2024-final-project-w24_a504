@@ -14,6 +14,9 @@ public class MainKeyboardListener implements KeyListener {
 		private static final int ITEM_HEIGHT = 90;
 	//	private int levelIndexer;
 		private boolean isPressed;
+		public int vertical_speed = 10;
+		public int terminal_velocity = 300;
+		private int gravity;
 //		private ArrayList<Barrier> barrier;
 //		private ArrayList<Player> player;
 		private ArrayList<Obstacle> obstacles =  new ArrayList<>();;
@@ -34,7 +37,7 @@ public class MainKeyboardListener implements KeyListener {
 		        // the code below moves the player 
 		            case KeyEvent.VK_UP:
 		            	if( player.getY() >= 0) {
-		               player.setY(player.getY() - 10);
+		               player.setY(player.getY() - 300);
 		               break;
 		            	}
 //		            	player.setY(player.getY() - 10);
@@ -103,9 +106,13 @@ public class MainKeyboardListener implements KeyListener {
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
 			int currentKey = e.getKeyCode();
+			int gravity = 0;
+			int vertical_pos;
+			
 	        switch (currentKey) {
 	        // the code below moves the player 
 	            case KeyEvent.VK_UP:
+	            	
 	               player.setY(player.getY() + 5);
 	               System.out.println(" up Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 	               

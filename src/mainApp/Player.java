@@ -17,18 +17,27 @@ public class Player {
 	public static int ACCEL = 3;
 	private int lastMoveX = 0; 
     private int lastMoveY = 0;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
+    private int playerMovement = 10;
     public JFrame frame;
-    
-
+    private double gravity = 0;
+    private double vertical_speed = 1;
+    private double terminal_velocity = 300;
 	
-	public Player(int x, int y, JFrame frame) {
+	public Player(double x, double y, JFrame frame) {
 //		super(x, y,PLAYER_COLOR);
-		this.x = x;
+		this.x = x ;
 		this.y = y;
 		this.frame = frame;
 		
+	}
+	public void playerGravity() {		
+		this.gravity = this.gravity + vertical_speed;
+    	if (this.gravity > terminal_velocity) {
+    		this.gravity = terminal_velocity;
+    	}
+    	setY(getY() + this.gravity);
 	}
 
 
@@ -46,21 +55,21 @@ public class Player {
 		
 	}
 
-	public void setX(int i) {
+	public void setX(double i) {
 		// TODO Auto-generated method stub
 		this.x = i;
 		
 	}
-	public void setY(int i) {
+	public void setY(double i) {
 		// TODO Auto-generated method stub
 		this.y = i;
 		
 	}
-	public int getX() {
+	public double getX() {
 		// TODO Auto-generated method stub
 		return x;
 	}
-	public int getY() {
+	public double getY() {
 		// TODO Auto-generated method stub
 		return y;
 	}

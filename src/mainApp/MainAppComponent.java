@@ -32,7 +32,7 @@ public class MainAppComponent extends JComponent {
 	private int tokens = 0;
 	private int panelWidth;
 	private int panelHeight;
-	
+	//private Player player;
 	public static final int SCREEN_HEIGHT = 800;
 	public static final int SCREEN_WIDTH = 800;
 	public static final int startingLevel = 1;
@@ -67,7 +67,7 @@ public class MainAppComponent extends JComponent {
 
 			public void update() {
 				// TODO Auto-generated method stub
-		
+		//		player.setX(player.getX() + 5);
 				this.repaint();
 			}
 }
