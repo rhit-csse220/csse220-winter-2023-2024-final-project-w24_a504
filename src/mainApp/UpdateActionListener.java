@@ -11,7 +11,10 @@ public class UpdateActionListener implements ActionListener {
  }
 	@Override
 	public void actionPerformed(ActionEvent e) {
+//		if(component.level.player.getY() <= 980) {
 		component.level.player.playerGravity();
+//		}
+//		component.level.missile.missileMovement();
  		component.update();
 		
 	}

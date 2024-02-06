@@ -19,10 +19,11 @@ public class Level {
 	public Player player;
 	private boolean isPressed;
 	public JFrame frame;
-	
+//	public Missile missile;
 	public Level(JFrame frame) {
 		this.frame = frame;
 		 player = new Player(0, 0, this.frame);
+//		 missile = new Missile(0,0, this.frame);
 	}
 	public void readFile(String FileName) throws InvalidLevelFormatException {
 		Scanner scanner = null;
@@ -48,9 +49,6 @@ public class Level {
 				  //  System.out.println("Barrier at X: " + newBarrier.getX() + " Y: " + newBarrier.getY());
 				}
 				else if (line.charAt(j) == 'P') {
-//					Obstacle newPlayer = new Player(j* ITEM_WIDTH, row * ITEM_HEIGHT);
-//					Player newPlayer = new Player(0, 0, this.frame);
-//					this.obstacles.add(newPlayer);
 					player.setX(j* ITEM_WIDTH);
 					player.setY(row* ITEM_HEIGHT);
 				}
@@ -67,6 +65,8 @@ public class Level {
 					Obstacle newMissile = new Missile(j* ITEM_WIDTH, row * ITEM_HEIGHT);
 					//System.out.println("E");
 					this.obstacles.add(newMissile);
+//					missile.setX(j* ITEM_WIDTH);
+//					missile.setY(row* ITEM_HEIGHT);
 				}
 			}
 			row++;

@@ -23,7 +23,7 @@ public abstract class Obstacle {
 
 	
 	
-	public Obstacle(int x, int y, Color color) {
+	public Obstacle(double x, double y, Color color) {
 		this.x = x;
 		this.y = y;
 		this.VelY = 0;

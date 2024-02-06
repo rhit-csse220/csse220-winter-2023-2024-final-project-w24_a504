@@ -22,8 +22,8 @@ public class Player {
     private int playerMovement = 10;
     public JFrame frame;
     private double gravity = 0;
-    private double vertical_speed = 1;
-    private double terminal_velocity = 300;
+    private double vertical_speed = .2;
+    private double terminal_velocity = 5;
 	
 	public Player(double x, double y, JFrame frame) {
 //		super(x, y,PLAYER_COLOR);
@@ -32,12 +32,16 @@ public class Player {
 		this.frame = frame;
 		
 	}
-	public void playerGravity() {		
+	public void playerGravity() {	
+		if(this.getY() < 990) {
 		this.gravity = this.gravity + vertical_speed;
     	if (this.gravity > terminal_velocity) {
     		this.gravity = terminal_velocity;
     	}
+    	
     	setY(getY() + this.gravity);
+    	setX(getX() + this.gravity);
+		}
 	}
 
 
