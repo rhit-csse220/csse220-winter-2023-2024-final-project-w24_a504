@@ -14,6 +14,13 @@ public class UpdateActionListener implements ActionListener {
 //		if(component.level.player.getY() <= 980) {
 		component.level.player.playerGravity();
 //		}
+		for (Obstacle object : component.level.obstacles) {
+		object.missileMovement();
+		}
+		
+//		for (Obstacle object : component.level.obstacles) {
+//			object.missileMovement();
+//			}
 //		component.level.missile.missileMovement();
  		component.update();
 		

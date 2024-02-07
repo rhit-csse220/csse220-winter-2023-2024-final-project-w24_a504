@@ -33,7 +33,11 @@ public class Player {
 		
 	}
 	public void playerGravity() {	
-		if(this.getY() < 990) {
+		if(this.getY() >= 900) {
+			this.gravity = 0;
+			setY(900);
+		}else {
+		
 		this.gravity = this.gravity + vertical_speed;
     	if (this.gravity > terminal_velocity) {
     		this.gravity = terminal_velocity;
@@ -41,7 +45,7 @@ public class Player {
     	
     	setY(getY() + this.gravity);
     	setX(getX() + this.gravity);
-		}
+	}
 	}
 
 

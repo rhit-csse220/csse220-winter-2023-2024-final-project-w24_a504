@@ -1,5 +1,6 @@
 package mainApp;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
@@ -13,7 +14,7 @@ import javax.swing.JFrame;
 public class Level {
 	private static final int ITEM_WIDTH = 100;
 	private static final int ITEM_HEIGHT = 90;
-	private ArrayList<Obstacle> obstacles =  new ArrayList<>();;
+	public ArrayList<Obstacle> obstacles =  new ArrayList<>();;
 	private static final int NUMBER_OF_LEVELS = 5;
 	public int levelIndexer;
 	public Player player;
@@ -23,6 +24,7 @@ public class Level {
 	public Level(JFrame frame) {
 		this.frame = frame;
 		 player = new Player(0, 0, this.frame);
+//		 obstacles = new Obstacle(0,0, Color.BLACK);
 //		 missile = new Missile(0,0, this.frame);
 	}
 	public void readFile(String FileName) throws InvalidLevelFormatException {
@@ -67,6 +69,12 @@ public class Level {
 					this.obstacles.add(newMissile);
 //					missile.setX(j* ITEM_WIDTH);
 //					missile.setY(row* ITEM_HEIGHT);
+				}else if (line.charAt(j) == 'Y') {
+					Obstacle newMissileY = new MissileY(j* ITEM_WIDTH, row * ITEM_HEIGHT);
+					//System.out.println("E");
+					this.obstacles.add(newMissileY);
+//					missile.setX(j* ITEM_WIDTH);
+//					missile.setY(row* ITEM_HEIGHT);
 				}
 			}
 			row++;
@@ -87,14 +95,7 @@ public class Level {
 		return this.obstacles;
 	}
 
-//	public void runApp() {
-//		String NameOfFile = "levels/level1.txt";
-//		try {
-//			readFile(NameOfFile);
-//		}catch (InvalidLevelFormatException e) {
-//			e.printStackTrace();
-//		}
-//	}
+
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;
 		player.drawnOn(g2);

@@ -36,14 +36,14 @@ public class MainKeyboardListener implements KeyListener {
 		        switch (currentKey) {
 		        // the code below moves the player 
 		            case KeyEvent.VK_UP:
-		            	if( player.getY() >= 50 && player.getY() <= 875) {
+//		            	if( player.getY() >= 50 && player.getY() <= 875) {
 		               player.setY(player.getY() - 50);
 		               break;
-		            	}
+//		            	}
 //		            	player.setY(player.getY() - 10);
-		               System.out.println(" up Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+//		               System.out.println(" up Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		               
-		                break;
+		                
 		                
 		            case KeyEvent.VK_DOWN:
 		            	player.setY(player.getY() + 10);

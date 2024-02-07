@@ -26,7 +26,7 @@ public class Missile extends Obstacle  {
     		this.accel = terminal_velocity;
     	}
     	if (getX() <= 970) {
-    	setX(getX() + this.accel);
+    	setX(getX() - this.accel);
     	}
 	}
 

@@ -8,6 +8,8 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Rectangle2D.Double;
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
 public abstract class Obstacle {
 	protected double x;
 	protected double y;
@@ -20,6 +22,7 @@ public abstract class Obstacle {
 	protected boolean loadNextLevel;
 	protected boolean Draw;
 	private int size;
+	private JFrame frame;
 
 	
 	
@@ -29,9 +32,15 @@ public abstract class Obstacle {
 		this.VelY = 0;
 		this.VelX = 0;
 		this.size = 25;
-		this.color = color;		
+		this.color = color;	
+		this.frame = frame;
 	
 	}
+	
+	public abstract void missileMovement(); 
+		
+	
+	
 	
 	public void drawnOn(Graphics2D g) {
 		g.setColor(this.color);
