@@ -17,6 +17,7 @@ public class Player {
 	public static int ACCEL = 3;
 	private int lastMoveX = 0; 
     private int lastMoveY = 0;
+    protected int Lives = 3;
     private double x;
     private double y;
     private int playerMovement = 10;
@@ -60,6 +61,11 @@ public class Player {
 		//System.out.println("Obstacle x " + x + "Obstacle y" + y);
 		g.fill(newBox);
 		g.draw(newBox);
+	}
+	
+	public Rectangle.Double playerHitBox() {
+			
+	return new Rectangle.Double(this.x,this.y,75,75);
 		
 	}
 
@@ -73,6 +79,9 @@ public class Player {
 		this.y = i;
 		
 	}
+	public void setLives(int life) {
+		this.Lives = life;
+	}
 	public double getX() {
 		// TODO Auto-generated method stub
 		return x;
@@ -81,5 +90,9 @@ public class Player {
 		// TODO Auto-generated method stub
 		return y;
 	}
+	public int getLives() {
+		return Lives;
+	}
+	
 
 }

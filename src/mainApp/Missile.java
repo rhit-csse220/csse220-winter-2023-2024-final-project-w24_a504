@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
@@ -29,6 +30,7 @@ public class Missile extends Obstacle  {
     	setX(getX() - this.accel);
     	}
 	}
+
 
 //	public void setX(double i) {
 //		// TODO Auto-generated method stub

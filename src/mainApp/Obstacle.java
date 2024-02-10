@@ -50,6 +50,11 @@ public abstract class Obstacle {
 		g.draw(newBox);
 		
 	}
+	public Rectangle2D.Double obstacleHitBox() {
+		
+		return new Rectangle2D.Double(this.x,this.y,65,65);
+			
+		}
 	
 	
 	public double getX() {

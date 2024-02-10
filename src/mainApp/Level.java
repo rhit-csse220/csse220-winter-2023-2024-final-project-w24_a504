@@ -24,6 +24,8 @@ public class Level {
 	public Level(JFrame frame) {
 		this.frame = frame;
 		 player = new Player(0, 0, this.frame);
+		 System.out.println(player.getLives());
+		 
 //		 obstacles = new Obstacle(0,0, Color.BLACK);
 //		 missile = new Missile(0,0, this.frame);
 	}
@@ -94,7 +96,17 @@ public class Level {
 	public ArrayList<Obstacle> createLevel(){
 		return this.obstacles;
 	}
-
+	
+	public void playerCollision() {
+		for(Obstacle objects : obstacles) {
+			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
+				
+				System.out.println("I've been hit");
+			}
+			
+		}
+	}
+	
 
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;

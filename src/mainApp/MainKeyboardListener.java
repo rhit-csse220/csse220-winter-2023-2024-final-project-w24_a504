@@ -47,12 +47,12 @@ public class MainKeyboardListener implements KeyListener {
 		                
 		            case KeyEvent.VK_DOWN:
 		            	player.setY(player.getY() + 10);
-		            	System.out.println(" down Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+		            	//System.out.println(" down Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		                break;
 		                
 		            case KeyEvent.VK_LEFT:
 		            	player.setX(player.getX() - 10);
-		            	System.out.println(" left Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+		            	//System.out.println(" left Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		                break;
 		                
 		            case KeyEvent.VK_RIGHT:
@@ -60,7 +60,7 @@ public class MainKeyboardListener implements KeyListener {
 		            	player.setX(player.getX() + 10);
 		            	break;
 		            	}
-		            	System.out.println(" right Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+		            	//System.out.println(" right Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		                break;
 		        	
 		     
