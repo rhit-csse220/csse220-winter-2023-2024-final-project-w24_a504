@@ -38,7 +38,7 @@ public abstract class Obstacle {
 	}
 	
 	public abstract void missileMovement(); 
-		
+	public abstract void toggleMissileDirection(); 	
 	
 	
 	

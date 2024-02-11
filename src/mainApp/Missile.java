@@ -8,10 +8,11 @@ import javax.swing.JFrame;
 public class Missile extends Obstacle  {
 	private final static Color MISSILE_COLOR = Color.darkGray;
 	private double accel = 0;
-	private double horizontal_speed = 10;
+	private double horizontal_speed = .5;
 	private double terminal_velocity  = 10;
 	private double y;
 	private double x;
+	public double dx;
 	private JFrame frame;
 	public Missile(double x, double y) {
 		super(x, y, MISSILE_COLOR);
@@ -20,8 +21,17 @@ public class Missile extends Obstacle  {
 //		this.frame = frame;
 		// TODO Auto-generated constructor stub
 	}
-	
+	public void toggleMissileDirection() {
+		this.dx *= -1;
+	}
 	public void missileMovement() {		
+		
+		if (getX() > 1000 - 50 ) {
+				setX(this.dx*(1000-50));
+		} else if (getX() < 0 ) {
+			setX(900);
+		}
+		
 		this.accel = this.accel + horizontal_speed;
     	if (this.accel > terminal_velocity) {
     		this.accel = terminal_velocity;

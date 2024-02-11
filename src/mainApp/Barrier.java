@@ -17,5 +17,10 @@ public class Barrier extends Obstacle {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void toggleMissileDirection() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

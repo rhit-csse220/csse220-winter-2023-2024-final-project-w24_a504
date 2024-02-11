@@ -15,14 +15,14 @@ public class UpdateActionListener implements ActionListener {
 		component.level.player.playerGravity();
 		component.level.playerCollision();
 //		}
+		
 		for (Obstacle object : component.level.obstacles) {
-		object.missileMovement();
+			object.missileMovement();
+			object.toggleMissileDirection();
+			object.missileMovement();
 		}
 		
-//		for (Obstacle object : component.level.obstacles) {
-//			object.missileMovement();
-//			}
-//		component.level.missile.missileMovement();
+
  		component.update();
 		
 	}

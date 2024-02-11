@@ -20,5 +20,10 @@ public class Coin extends Obstacle {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void toggleMissileDirection() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
