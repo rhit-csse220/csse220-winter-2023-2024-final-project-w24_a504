@@ -101,7 +101,10 @@ public class Level {
 		for(Obstacle objects : obstacles) {
 			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
 				objects.onCollision(player);
-				//System.out.println("I've been hit");
+				System.out.println("I've been hit");
+				player.loseLife();
+				player.setX(0);
+				player.setY(800);
 			}
 			
 		}

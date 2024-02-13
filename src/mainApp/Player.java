@@ -94,5 +94,9 @@ public class Player {
 		return Lives;
 	}
 	
+	public void loseLife () {
+		this.setLives(this.getLives() - 1);
+	}
+	
 
 }
