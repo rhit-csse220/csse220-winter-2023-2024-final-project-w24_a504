@@ -100,8 +100,8 @@ public class Level {
 	public void playerCollision() {
 		for(Obstacle objects : obstacles) {
 			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
-				
-				System.out.println("I've been hit");
+				objects.onCollision(player);
+				//System.out.println("I've been hit");
 			}
 			
 		}
@@ -112,7 +112,9 @@ public class Level {
 		Graphics2D g2 = (Graphics2D)g;
 		player.drawnOn(g2);
 		for(Obstacle o : obstacles) {
-			o.drawnOn(g2);
+			if(o.Draw){
+				o.drawnOn(g2);
+			}
 		//	System.out.println("level x " + o.x + "level y " + o.y );
 		}
 }

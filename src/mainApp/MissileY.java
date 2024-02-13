@@ -39,6 +39,14 @@ public class MissileY extends Obstacle  {
     	}
 	}
 
+
+
+	@Override
+	public boolean onCollision(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 
 }

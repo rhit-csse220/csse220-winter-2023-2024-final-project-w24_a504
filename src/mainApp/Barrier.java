@@ -22,5 +22,10 @@ public class Barrier extends Obstacle {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public boolean onCollision(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

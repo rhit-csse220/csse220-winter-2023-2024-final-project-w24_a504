@@ -25,4 +25,9 @@ public class ElectrifiedBarrier extends Obstacle {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public boolean onCollision(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

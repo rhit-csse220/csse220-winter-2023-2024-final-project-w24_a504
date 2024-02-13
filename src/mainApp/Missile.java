@@ -40,6 +40,11 @@ public class Missile extends Obstacle  {
     	setX(getX() - this.accel);
     	}
 	}
+	@Override
+	public boolean onCollision(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 
 //	public void setX(double i) {

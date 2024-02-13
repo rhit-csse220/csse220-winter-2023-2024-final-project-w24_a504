@@ -33,13 +33,14 @@ public abstract class Obstacle {
 		this.VelX = 0;
 		this.size = 25;
 		this.color = color;	
+		this.Draw = true;
 		this.frame = frame;
 	
 	}
 	
 	public abstract void missileMovement(); 
 	public abstract void toggleMissileDirection(); 	
-	
+	public abstract boolean onCollision(Player player);
 	
 	
 	public void drawnOn(Graphics2D g) {
@@ -56,7 +57,9 @@ public abstract class Obstacle {
 			
 		}
 	
-	
+	public boolean getDraw() {
+		return this.Draw;
+	}
 	public double getX() {
 		return this.x;
 	}
@@ -95,6 +98,10 @@ public abstract class Obstacle {
 	}
 	protected void setSize(int size) {
 		this.size = size;
+	}
+	public void toggleDraw() {
+		this.Draw = !this.Draw;
+		System.out.println("COLLECTING");
 	}
 //	public void update() {
 //		// TODO Auto-generated method stub
