@@ -95,7 +95,9 @@ public class Player {
 	}
 	
 	public void loseLife () {
-		this.setLives(this.getLives() - 1);
+		this.setLives(this.getLives()- 1);
+
+		
 	}
 	
 

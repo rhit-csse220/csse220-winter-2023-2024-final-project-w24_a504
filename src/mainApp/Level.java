@@ -7,6 +7,7 @@ import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -99,17 +100,26 @@ public class Level {
 	
 	public void playerCollision() {
 		for(Obstacle objects : obstacles) {
+			//objects.onCollision(player);
 			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
 				objects.onCollision(player);
-				System.out.println("I've been hit");
-				player.loseLife();
-				player.setX(0);
-				player.setY(800);
+				if(!(objects instanceof Coin)){
+					System.out.println("I've been hit");
+					player.loseLife();
+					if(player.Lives == 0) {
+						System.exit(0);
+					}
+					player.setX(0);
+					player.setY(800);
+					
+				}
 			}
 			
 		}
 	}
-	
+	//public void endGame() {
+	//	System.exit(0);
+//	}
 
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;
