@@ -30,7 +30,10 @@ public class Coin extends Obstacle {
 	@Override
 	public boolean onCollision(Player player) {
 		// TODO Auto-generated method stub
-		this.toggleDraw();
+		if(!this.isCollected) {
+			this.toggleDraw();
+			this.isCollected = true;
+		}
 		return false;
 	}
 	
