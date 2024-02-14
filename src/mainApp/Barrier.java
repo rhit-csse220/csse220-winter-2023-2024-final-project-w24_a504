@@ -25,6 +25,8 @@ public class Barrier extends Obstacle {
 	@Override
 	public boolean onCollision(Player player) {
 		// TODO Auto-generated method stub
+		player.setIsMoveable(false);
+		player.collideWithBarrier(this);
 		return false;
 	}
 

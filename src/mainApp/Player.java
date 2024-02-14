@@ -26,6 +26,8 @@ public class Player {
     private double vertical_speed = .2;
     private double terminal_velocity = 5;
     private int numberOfCoins = 0;
+    public boolean isMoveable = true;
+    public boolean barrierIsHit = false;
 	
 	public Player(double x, double y, JFrame frame) {
 //		super(x, y,PLAYER_COLOR);
@@ -44,9 +46,10 @@ public class Player {
     	if (this.gravity > terminal_velocity) {
     		this.gravity = terminal_velocity;
     	}
-    	
+
     	setY(getY() + this.gravity);
     	setX(getX() + this.gravity);
+    	
 	}
 	}
 
@@ -104,6 +107,17 @@ public class Player {
 		// TODO Auto-generated method stub
 		this.numberOfCoins = 0;
 	}
-	
+	public boolean isMoveable() {
+		return isMoveable;
+	}
+	public void setIsMoveable(boolean moveable) {
+		this.isMoveable = moveable;
+	}
+	public void collideWithBarrier(Obstacle objects) {
+		this.barrierIsHit = true;
+		setX(getX() - this.gravity);
+		setY(getY() - this.gravity);
+		System.out.println("hit barrier");
+	}
 
 }
