@@ -101,30 +101,30 @@ public class Level {
 	public void playerCollision() {
 		int numOfObjectsOnPlayer = 0;
 		for(Obstacle objects : obstacles) {
-			//objects.onCollision(player);
 			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
 				objects.onCollision(player);
 				numOfObjectsOnPlayer ++;
 				if(objects instanceof Barrier) {
 					player.collideWithBarrier(objects);
+					System.out.println("I've hit a coin");
+
 				}
-//				if(!(objects instanceof Coin )){
-//					System.out.println("I've been hit");
-//					player.loseLife();
-//					if(player.Lives == 0) {
-//						System.exit(0);
-//					}
-//					
-//					player.setX(0);
-//					player.setY(800);
-//					
-//				}
-			
+				else if(!(objects instanceof Coin )){
+					System.out.println("I've been hit");
+					player.loseLife();
+					if(player.Lives == 0) {
+						System.exit(0);
+					}
+					
+					player.setX(0);
+					player.setY(800);
+					
+				}
 			}
 			
 		}
 		if(numOfObjectsOnPlayer == 0) {
-			//player.setIsMoveable(true);
+			player.setIsMoveable(true);
 		}
 	}
 public void restartGame() {

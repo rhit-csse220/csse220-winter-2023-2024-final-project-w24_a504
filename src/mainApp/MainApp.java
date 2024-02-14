@@ -31,7 +31,7 @@ public class MainApp{
         frame.add(gameButtons, BorderLayout.SOUTH);
         
         frame.addKeyListener(new MainKeyboardListener(component.level.player, component.level));
-        
+        frame.setFocusable(true);
         
         frame.setVisible(true);
         UpdateActionListener updateListener = new UpdateActionListener(component);

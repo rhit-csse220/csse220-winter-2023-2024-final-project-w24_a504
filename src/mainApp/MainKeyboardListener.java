@@ -33,12 +33,14 @@ public class MainKeyboardListener implements KeyListener {
 			this.isPressed = false;
 			this.player = player;
 			this.level = level;
+			
 		}
 		@Override
 		public void keyPressed(KeyEvent e) { 
-//			  if(!(player.isMoveable())) {
-//		        	return;
-//		        }
+			System.out.print("IM GETTIN PRESSED");
+			  if(!(player.isMoveable())) {
+		        	return;
+		        }
 			int currentKey = e.getKeyCode();
 		        switch (currentKey) {
 		        // the code below moves the player 

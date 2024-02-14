@@ -119,6 +119,9 @@ public class Player {
 		if(this.getY() + 60 - objects.getY() <= 10) {
 			this.setY(objects.getY() - 60);
 		}
+		if(this.getX() + 60 - objects.getX() <= 10) {
+			this.setX(objects.getX() - 60);
+		}
 		System.out.println("hit barrier");
 	}
 
