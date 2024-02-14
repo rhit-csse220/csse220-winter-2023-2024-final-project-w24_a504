@@ -5,8 +5,8 @@ import java.awt.Color;
 public class MissileY extends Obstacle  {
 	private final static Color MISSILE_COLOR = Color.GREEN;
 	private double accel = 0;
-	private double horizontal_speed = .5;
-	private double terminal_velocity  = 10;
+	private double horizontal_speed = .2;
+	private double terminal_velocity  = 5;
 	public double dy;
 
 	public MissileY(double x, double y) {

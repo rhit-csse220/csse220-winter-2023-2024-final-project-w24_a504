@@ -25,6 +25,7 @@ public class Player {
     private double gravity = 0;
     private double vertical_speed = .2;
     private double terminal_velocity = 5;
+    private int numberOfCoins = 0;
 	
 	public Player(double x, double y, JFrame frame) {
 //		super(x, y,PLAYER_COLOR);
@@ -98,6 +99,10 @@ public class Player {
 		this.setLives(this.getLives()- 1);
 
 		
+	}
+	public void resetCoins() {
+		// TODO Auto-generated method stub
+		this.numberOfCoins = 0;
 	}
 	
 

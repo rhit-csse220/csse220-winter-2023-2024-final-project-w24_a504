@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 public class Missile extends Obstacle  {
 	private final static Color MISSILE_COLOR = Color.darkGray;
 	private double accel = 0;
-	private double horizontal_speed = .5;
-	private double terminal_velocity  = 10;
+	private double horizontal_speed = .2;
+	private double terminal_velocity  = 5;
 	private double y;
 	private double x;
 	public double dx;

@@ -19,7 +19,8 @@ public class UpdateActionListener implements ActionListener {
 		for (Obstacle object : component.level.obstacles) {
 			object.missileMovement();
 			object.toggleMissileDirection();
-			object.missileMovement();
+//			object.missileMovement();
+//			component.update();
 		}
 		
 

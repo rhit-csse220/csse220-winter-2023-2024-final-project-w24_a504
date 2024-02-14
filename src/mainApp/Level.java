@@ -117,10 +117,11 @@ public class Level {
 			
 		}
 	}
-	//public void endGame() {
-	//	System.exit(0);
-//	}
-
+public void restartGame() {
+	this.levelIndexer = 1;
+	this.player.Lives = 3;
+	this.player.resetCoins();
+}
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;
 		player.drawnOn(g2);

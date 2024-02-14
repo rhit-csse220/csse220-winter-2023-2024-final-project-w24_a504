@@ -22,7 +22,7 @@ public abstract class Obstacle {
 	protected boolean loadNextLevel;
 	protected boolean Draw;
 	private int size;
-	private JFrame frame;
+//	private JFrame frame;
 
 	
 	
@@ -34,7 +34,7 @@ public abstract class Obstacle {
 		this.size = 25;
 		this.color = color;	
 		this.Draw = true;
-		this.frame = frame;
+//		this.frame = frame;
 	
 	}
 	
@@ -45,7 +45,7 @@ public abstract class Obstacle {
 	
 	public void drawnOn(Graphics2D g) {
 		g.setColor(this.color);
-		Rectangle2D.Double newBox = new Rectangle.Double(x,y,50,50);
+		Rectangle2D.Double newBox = new Rectangle.Double(x,y,70,30);
 		//System.out.println("Obstacle x " + x + "Obstacle y" + y);
 		g.fill(newBox);
 		g.draw(newBox);
@@ -53,7 +53,7 @@ public abstract class Obstacle {
 	}
 	public Rectangle2D.Double obstacleHitBox() {
 		
-		return new Rectangle2D.Double(this.x,this.y,65,65);
+		return new Rectangle2D.Double(this.x,this.y,60,30);
 			
 		}
 	

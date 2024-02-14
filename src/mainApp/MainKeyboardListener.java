@@ -2,14 +2,18 @@ package mainApp;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.FileNotFoundException;
+//import java.io.File;
+//import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
+
+//import javax.swing.Timer;
 
 public class MainKeyboardListener implements KeyListener {
 		public Level level;
 	    private Player player;
+//	    private Component com;
+	    private UpdateActionListener listener;
 		private static final int ITEM_WIDTH = 100;
 		private static final int ITEM_HEIGHT = 90;
 	//	private int levelIndexer;
@@ -51,7 +55,7 @@ public class MainKeyboardListener implements KeyListener {
 		                break;
 		                
 		            case KeyEvent.VK_LEFT:
-		            	player.setX(player.getX() - 10);
+		            	player.setX(player.getX() - 15);
 		            	//System.out.println(" left Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		                break;
 		                
@@ -62,6 +66,11 @@ public class MainKeyboardListener implements KeyListener {
 		            	}
 		            	//System.out.println(" right Player's new position: X=" + player.getX() + ", Y=" + player.getY());
 		                break;
+//		            case KeyEvent.VK_G:
+//		            	UpdateActionListener updateListener = new UpdateActionListener(component);
+//		            	Timer timer = new Timer(50, listener);
+//		            	 timer.start();
+//		                
 		        	
 		     
 		                
