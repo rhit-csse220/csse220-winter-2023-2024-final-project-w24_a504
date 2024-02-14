@@ -36,16 +36,17 @@ public class MainKeyboardListener implements KeyListener {
 		}
 		@Override
 		public void keyPressed(KeyEvent e) { 
-			  if(!(player.isMoveable())) {
-		        	return;
-		        }
+//			  if(!(player.isMoveable())) {
+//		        	return;
+//		        }
 			int currentKey = e.getKeyCode();
 		        switch (currentKey) {
 		        // the code below moves the player 
 		      
 		            case KeyEvent.VK_UP:
 //		            	if( player.getY() >= 50 && player.getY() <= 875) {
-		               player.setY(player.getY() - 50);
+		              
+		            	player.setY(player.getY() - 50);
 		               break;
 //		            	}
 //		            	player.setY(player.getY() - 10);

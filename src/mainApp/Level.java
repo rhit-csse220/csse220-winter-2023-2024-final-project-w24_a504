@@ -108,23 +108,23 @@ public class Level {
 				if(objects instanceof Barrier) {
 					player.collideWithBarrier(objects);
 				}
-				if(!(objects instanceof Coin )){
-					System.out.println("I've been hit");
-					player.loseLife();
-					if(player.Lives == 0) {
-						System.exit(0);
-					}
-					
-					player.setX(0);
-					player.setY(800);
-					
-				}
+//				if(!(objects instanceof Coin )){
+//					System.out.println("I've been hit");
+//					player.loseLife();
+//					if(player.Lives == 0) {
+//						System.exit(0);
+//					}
+//					
+//					player.setX(0);
+//					player.setY(800);
+//					
+//				}
 			
 			}
 			
 		}
 		if(numOfObjectsOnPlayer == 0) {
-			player.setIsMoveable(true);
+			//player.setIsMoveable(true);
 		}
 	}
 public void restartGame() {

@@ -69,7 +69,7 @@ public class Player {
 	
 	public Rectangle.Double playerHitBox() {
 			
-	return new Rectangle.Double(this.x,this.y,75,75);
+	return new Rectangle.Double(this.x,this.y,60,60);
 		
 	}
 
@@ -115,8 +115,10 @@ public class Player {
 	}
 	public void collideWithBarrier(Obstacle objects) {
 		this.barrierIsHit = true;
-		setX(getX() - this.gravity);
-		setY(getY() - this.gravity);
+		//setX(getX() - this.gravity);
+		if(this.getY() + 60 - objects.getY() <= 10) {
+			this.setY(objects.getY() - 60);
+		}
 		System.out.println("hit barrier");
 	}
 

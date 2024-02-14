@@ -45,7 +45,7 @@ public abstract class Obstacle {
 	
 	public void drawnOn(Graphics2D g) {
 		g.setColor(this.color);
-		Rectangle2D.Double newBox = new Rectangle.Double(x,y,70,30);
+		Rectangle2D.Double newBox = new Rectangle.Double(x,y,60,30);
 		//System.out.println("Obstacle x " + x + "Obstacle y" + y);
 		g.fill(newBox);
 		g.draw(newBox);
