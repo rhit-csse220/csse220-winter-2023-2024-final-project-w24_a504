@@ -101,7 +101,7 @@ public abstract class Obstacle {
 	}
 	public void toggleDraw() {
 		this.Draw = !this.Draw;
-		System.out.println("COLLECTING");
+//		System.out.println("COLLECTING");
 	}
 //	public void update() {
 //		// TODO Auto-generated method stub

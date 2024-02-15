@@ -37,7 +37,7 @@ public class MainKeyboardListener implements KeyListener {
 		}
 		@Override
 		public void keyPressed(KeyEvent e) { 
-			System.out.print("IM GETTIN PRESSED");
+//			System.out.print("IM GETTIN PRESSED");
 			  if(!(player.isMoveable())) {
 		        	return;
 		        }
@@ -72,13 +72,11 @@ public class MainKeyboardListener implements KeyListener {
 		            	break;
 		            	}
 		            	//System.out.println(" right Player's new position: X=" + player.getX() + ", Y=" + player.getY());
-		                break;
-//		            case KeyEvent.VK_G:
-//		            	UpdateActionListener updateListener = new UpdateActionListener(component);
-//		            	Timer timer = new Timer(50, listener);
-//		            	 timer.start();
-//		                
-		        	
+		                
+		            case KeyEvent.VK_SPACE:
+		            	this.level.gameState = 1;
+		                
+		            	break;
 		     
 		                
 		        //the code below loads level 		

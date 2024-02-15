@@ -22,7 +22,7 @@ public NewGameListener(Level level, JFrame frame ) {
 		this.level.restartGame();
 		try {
 			
-			this.level.readFile(FileName);
+			this.level.readFile("levels/level1.txt");
 			
 		}catch(InvalidLevelFormatException e1) {
 			System.err.println("File not found!");

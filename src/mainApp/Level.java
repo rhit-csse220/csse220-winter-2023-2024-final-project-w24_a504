@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
@@ -16,12 +17,13 @@ public class Level {
 	private static final int ITEM_WIDTH = 100;
 	private static final int ITEM_HEIGHT = 90;
 	public ArrayList<Obstacle> obstacles =  new ArrayList<>();;
-	private static final int NUMBER_OF_LEVELS = 5;
-	public int levelIndexer;
+//	private static final int NUMBER_OF_LEVELS = 5;
+	public int levelIndexer = 0;
 	public Player player;
 	private boolean isPressed;
 	public JFrame frame;
-//	public Missile missile;
+	public int gameState = 0;
+	private double numberOfCoins = 0;
 	public Level(JFrame frame) {
 		this.frame = frame;
 		 player = new Player(0, 0, this.frame);
@@ -84,6 +86,22 @@ public class Level {
 		}
 		scanner.close();
 	}
+	public boolean gameOver() {
+		return (this.levelIndexer == 2 && player.getX() >= 900) ;
+			
+	}
+	public void nextLevel() {
+		if (player.getX() >= 900 && levelIndexer == 1) {
+			try {
+				this.readFile("levels/level2.txt");
+				System.out.println("NEXT LEVEL");
+				levelIndexer ++ ;
+			} catch (InvalidLevelFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 	public int getIndex() {
 		System.out.println(levelIndexer);
 		return this.levelIndexer;
@@ -104,15 +122,21 @@ public class Level {
 			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
 				objects.onCollision(player);
 				numOfObjectsOnPlayer ++;
+//				obstacles.remove(objects);
+				if(objects instanceof Coin) {
+					numberOfCoins += .5;
+//					obstacles.remove(objects);
+//					System.out.println("I've hit a coin");
+				}
 				if(objects instanceof Barrier) {
 					player.collideWithBarrier(objects);
-					System.out.println("I've hit a coin");
+//					System.out.println("I've hit a barrier");
 
 				}
 				else if(!(objects instanceof Coin )){
-					System.out.println("I've been hit");
+//					System.out.println("I've been hit");
 					player.loseLife();
-					if(player.Lives == 0) {
+					if(player.lives == 0) {
 						System.exit(0);
 					}
 					
@@ -125,15 +149,33 @@ public class Level {
 		}
 		if(numOfObjectsOnPlayer == 0) {
 			player.setIsMoveable(true);
+//			System.out.println("Should set to true");
 		}
 	}
+	public void resetCoins() {
+		// TODO Auto-generated method stub
+		this.numberOfCoins = 0;
+	}
+	
 public void restartGame() {
 	this.levelIndexer = 1;
-	this.player.Lives = 3;
-	this.player.resetCoins();
+	this.player.lives = 3;
+	this.resetCoins();
 }
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;
+//		player.drawnOn(g2);
+		if(this.gameState == 0) {
+			g2.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+			g2.drawString("JET PACK JOY RIDE", 5, 500);
+			g2.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+			g2.drawString("Press Space To Start", 300, 600);
+			
+		}else {
+			levelIndexer = 1;
+			g2.setFont(new Font("TimesRoman", Font.PLAIN, 25));
+			g2.drawString("Number of Lives: " + player.getLives() , 50, 50);
+			g2.drawString("Number of Coins: " + this.numberOfCoins , 300, 50);
 		player.drawnOn(g2);
 		for(Obstacle o : obstacles) {
 			if(o.Draw){
@@ -141,5 +183,13 @@ public void restartGame() {
 			}
 		//	System.out.println("level x " + o.x + "level y " + o.y );
 		}
+		if(gameOver() == true) {
+			g2.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+			g2.drawString("Winner!"  , 100, 100);
+			System.out.println("gameOver");
+			gameState = 0;
+		}
+		}
 }
+	
 }

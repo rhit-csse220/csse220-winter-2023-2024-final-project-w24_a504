@@ -41,7 +41,7 @@ public class MainApp{
         quitGame.addActionListener(new QuitGameListener(frame));
         gameButtons.add(quitGame);
         JButton newGame = new JButton("New Game");
-//        newGame.addActionListener(new NewGameListener(component.level, frame));
+        newGame.addActionListener(new NewGameListener(component.level, frame));
         gameButtons.add(newGame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         

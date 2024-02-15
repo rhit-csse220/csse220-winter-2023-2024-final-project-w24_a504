@@ -11,16 +11,14 @@ public class UpdateActionListener implements ActionListener {
  }
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		if(component.level.player.getY() <= 980) {
+		if(this.component.level.gameState == 1) {
 		component.level.player.playerGravity();
 		component.level.playerCollision();
-//		}
-		
+		component.level.nextLevel();
 		for (Obstacle object : component.level.obstacles) {
 			object.missileMovement();
 			object.toggleMissileDirection();
-//			object.missileMovement();
-//			component.update();
+
 		}
 		
 
@@ -28,6 +26,6 @@ public class UpdateActionListener implements ActionListener {
 		
 	}
 
-	
+	}
 	
 }

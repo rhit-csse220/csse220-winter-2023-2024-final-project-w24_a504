@@ -17,7 +17,7 @@ public class Player {
 	public static int ACCEL = 3;
 	private int lastMoveX = 0; 
     private int lastMoveY = 0;
-    protected int Lives = 3;
+    protected int lives = 3;
     private double x;
     private double y;
     private int playerMovement = 10;
@@ -25,7 +25,7 @@ public class Player {
     private double gravity = 0;
     private double vertical_speed = .2;
     private double terminal_velocity = 5;
-    private int numberOfCoins = 0;
+//    private int numberOfCoins = 0;
     public boolean isMoveable = true;
     public boolean barrierIsHit = false;
 	
@@ -84,7 +84,7 @@ public class Player {
 		
 	}
 	public void setLives(int life) {
-		this.Lives = life;
+		this.lives = life;
 	}
 	public double getX() {
 		// TODO Auto-generated method stub
@@ -95,23 +95,23 @@ public class Player {
 		return y;
 	}
 	public int getLives() {
-		return Lives;
+		return lives;
 	}
 	
 	public void loseLife () {
 		this.setLives(this.getLives()- 1);
 
-		
 	}
-	public void resetCoins() {
-		// TODO Auto-generated method stub
-		this.numberOfCoins = 0;
-	}
+//	public void resetCoins() {
+//		// TODO Auto-generated method stub
+//		this.numberOfCoins = 0;
+//	}
 	public boolean isMoveable() {
 		return isMoveable;
 	}
 	public void setIsMoveable(boolean moveable) {
 		this.isMoveable = moveable;
+		
 	}
 	public void collideWithBarrier(Obstacle objects) {
 		this.barrierIsHit = true;
@@ -122,7 +122,7 @@ public class Player {
 		if(this.getX() + 60 - objects.getX() <= 10) {
 			this.setX(objects.getX() - 60);
 		}
-		System.out.println("hit barrier");
+//		System.out.println("hit barrier");
 	}
 
 }
