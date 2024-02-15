@@ -27,8 +27,7 @@ public class Player {
     private double terminal_velocity = 5;
 //    private int numberOfCoins = 0;
     public boolean isMoveable = true;
-    public boolean barrierIsHit = false;
-	
+    public boolean barrierIsHit = false;	
 	public Player(double x, double y, JFrame frame) {
 //		super(x, y,PLAYER_COLOR);
 		this.x = x ;

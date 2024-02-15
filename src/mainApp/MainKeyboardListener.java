@@ -24,7 +24,7 @@ public class MainKeyboardListener implements KeyListener {
 //		private ArrayList<Barrier> barrier;
 //		private ArrayList<Player> player;
 		private ArrayList<Obstacle> obstacles =  new ArrayList<>();;
-		private static final int NUMBER_OF_LEVELS = 5;
+		private static final int NUMBER_OF_LEVELS = 2;
 		
 		
 		public MainKeyboardListener(Player player, Level level) {

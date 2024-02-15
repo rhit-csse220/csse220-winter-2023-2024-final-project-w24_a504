@@ -18,7 +18,7 @@ public class Level {
 	private static final int ITEM_HEIGHT = 90;
 	public ArrayList<Obstacle> obstacles =  new ArrayList<>();;
 //	private static final int NUMBER_OF_LEVELS = 5;
-	public int levelIndexer = 0;
+	public int levelIndexer = 1;
 	public Player player;
 	private boolean isPressed;
 	public JFrame frame;
@@ -87,15 +87,15 @@ public class Level {
 		scanner.close();
 	}
 	public boolean gameOver() {
-		return (this.levelIndexer == 2 && player.getX() >= 900) ;
+		return (this.levelIndexer <= 2 && player.getX() >= 800) ;
 			
 	}
 	public void nextLevel() {
-		if (player.getX() >= 900 && levelIndexer == 1) {
+		if (player.getX() >= 800 && levelIndexer == 1) {
 			try {
 				this.readFile("levels/level2.txt");
-				System.out.println("NEXT LEVEL");
-				levelIndexer ++ ;
+				levelIndexer++;
+				System.out.println(levelIndexer);
 			} catch (InvalidLevelFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -171,8 +171,7 @@ public void restartGame() {
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 			g2.drawString("Press Space To Start", 300, 600);
 			
-		}else {
-			levelIndexer = 1;
+		}else if (this.gameState == 1){
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 25));
 			g2.drawString("Number of Lives: " + player.getLives() , 50, 50);
 			g2.drawString("Number of Coins: " + this.numberOfCoins , 300, 50);
@@ -183,12 +182,14 @@ public void restartGame() {
 			}
 		//	System.out.println("level x " + o.x + "level y " + o.y );
 		}
+	
+		}
 		if(gameOver() == true) {
+			System.out.println("This works");
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 			g2.drawString("Winner!"  , 100, 100);
 			System.out.println("gameOver");
 			gameState = 0;
-		}
 		}
 }
 	
