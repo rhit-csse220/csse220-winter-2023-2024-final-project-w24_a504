@@ -7,12 +7,10 @@ public class MainActionListener implements ActionListener{
 	
 	public MainActionListener(MainAppComponent element) {
 		this.screen = element;
-	}
-	
+	}	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.screen.update();
-		//this.screen.drawScreen();
 	}
 
 }

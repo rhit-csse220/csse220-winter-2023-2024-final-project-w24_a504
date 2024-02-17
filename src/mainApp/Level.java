@@ -1,37 +1,40 @@
 package mainApp;
-
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
-
 import javax.swing.JFrame;
 
+/**
+ * Class: Level
+ * @author W24_a504
+ * Purpose: runs all methods that make the game function
+ */
 public class Level {
 	private static final int ITEM_WIDTH = 100;
 	private static final int ITEM_HEIGHT = 90;
 	public ArrayList<Obstacle> obstacles =  new ArrayList<>();;
-//	private static final int NUMBER_OF_LEVELS = 5;
 	public int levelIndexer = 1;
 	public Player player;
 	private boolean isPressed;
 	public JFrame frame;
 	public int gameState = 0;
 	private double numberOfCoins = 0;
+	
 	public Level(JFrame frame) {
 		this.frame = frame;
 		 player = new Player(0, 0, this.frame);
 		 System.out.println(player.getLives());
-		 
-//		 obstacles = new Obstacle(0,0, Color.BLACK);
-//		 missile = new Missile(0,0, this.frame);
 	}
+	
+	/**
+	 * ensures: a a .txt file is loaded in if the an invalid file is loaded 
+	 * the flowing error will throw also makes sure the level is drawn on the screen
+	 * @param FileName
+	 * @throws InvalidLevelFormatException
+	 */
 	public void readFile(String FileName) throws InvalidLevelFormatException {
 		Scanner scanner = null;
 		File file = null;
@@ -52,8 +55,6 @@ public class Level {
 				if(line.charAt(j) == 'B') {
 					Obstacle newBarrier = new Barrier((j * ITEM_WIDTH), row * ITEM_HEIGHT);
 				    this.obstacles.add(newBarrier);
-				    
-				  //  System.out.println("Barrier at X: " + newBarrier.getX() + " Y: " + newBarrier.getY());
 				}
 				else if (line.charAt(j) == 'P') {
 					player.setX(j* ITEM_WIDTH);
@@ -65,45 +66,50 @@ public class Level {
 					
 				}else if (line.charAt(j) == 'E') {
 					Obstacle newElectrifiedBarrier = new ElectrifiedBarrier(j* ITEM_WIDTH, row * ITEM_HEIGHT);
-					//System.out.println("E");
 					this.obstacles.add(newElectrifiedBarrier);
-					
 				}else if (line.charAt(j) == 'M') {
 					Obstacle newMissile = new Missile(j* ITEM_WIDTH, row * ITEM_HEIGHT);
-					//System.out.println("E");
 					this.obstacles.add(newMissile);
-//					missile.setX(j* ITEM_WIDTH);
-//					missile.setY(row* ITEM_HEIGHT);
 				}else if (line.charAt(j) == 'Y') {
 					Obstacle newMissileY = new MissileY(j* ITEM_WIDTH, row * ITEM_HEIGHT);
-					//System.out.println("E");
 					this.obstacles.add(newMissileY);
-//					missile.setX(j* ITEM_WIDTH);
-//					missile.setY(row* ITEM_HEIGHT);
+
 				}
 			}
 			row++;
 		}
 		scanner.close();
 	}
+	
+	/**
+	 * ensures: checks is the player has reached the far right side of the 
+	 * screen on the last level and ends the game
+	 * @return
+	 */
 	public boolean gameOver() {
-		return (this.levelIndexer <= 2 && player.getX() >= 800) ;
+		return (this.levelIndexer <= 2 && player.getX() >= 950) ;
 			
 	}
+	
+	/**
+	 * ensures: the nest level is loaded when the player reaches the 
+	 * far right bound of the screen
+	 */
 	public void nextLevel() {
-		if (player.getX() >= 800 && levelIndexer == 1) {
+		if (player.getX() >= 950 && levelIndexer == 1) {
 			try {
 				this.readFile("levels/level2.txt");
-				levelIndexer++;
-				System.out.println(levelIndexer);
+				levelIndexer ++ ;
 			} catch (InvalidLevelFormatException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
+	/**
+	 * ensures: gets the number of the current level 
+	 * @return
+	 */
 	public int getIndex() {
-		System.out.println(levelIndexer);
 		return this.levelIndexer;
 	}
 	public boolean getIsPressed() {
@@ -116,25 +122,26 @@ public class Level {
 		return this.obstacles;
 	}
 	
+	/**
+	 * ensures: determines what to do when the players hitBox 
+	 * comes into contact with the certain type of obstacles 
+	 */
 	public void playerCollision() {
 		int numOfObjectsOnPlayer = 0;
 		for(Obstacle objects : obstacles) {
 			if(player.playerHitBox().intersects(objects.obstacleHitBox())) {
 				objects.onCollision(player);
 				numOfObjectsOnPlayer ++;
-//				obstacles.remove(objects);
 				if(objects instanceof Coin) {
 					numberOfCoins += .5;
-//					obstacles.remove(objects);
-//					System.out.println("I've hit a coin");
 				}
+				// if the obstacle is a barrier call collideWithBarrier
 				if(objects instanceof Barrier) {
 					player.collideWithBarrier(objects);
-//					System.out.println("I've hit a barrier");
 
 				}
+				// if the obstacle is not a coin player will reset and deduct a life 
 				else if(!(objects instanceof Coin )){
-//					System.out.println("I've been hit");
 					player.loseLife();
 					if(player.lives == 0) {
 						System.exit(0);
@@ -149,29 +156,40 @@ public class Level {
 		}
 		if(numOfObjectsOnPlayer == 0) {
 			player.setIsMoveable(true);
-//			System.out.println("Should set to true");
 		}
 	}
+	
+	/**
+	 * ensures: coin count is reset when new game is selected 
+	 */
 	public void resetCoins() {
-		// TODO Auto-generated method stub
 		this.numberOfCoins = 0;
 	}
-	
+/**
+ * ensures: the level and player lives is reset when newGame is selected 
+ */
 public void restartGame() {
 	this.levelIndexer = 1;
 	this.player.lives = 3;
 	this.resetCoins();
 }
+
+/**
+ * ensures: each obstacle read from the text file is drawn on the screen 
+ * creates a start screen when gamestate is zero and provides directions
+ * when gamestate is 1 displays player lives and coin count 
+ * @param g
+ */
 	public void drawnOn(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D)g;
-//		player.drawnOn(g2);
+
 		if(this.gameState == 0) {
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 100));
 			g2.drawString("JET PACK JOY RIDE", 5, 500);
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 			g2.drawString("Press Space To Start", 300, 600);
 			
-		}else if (this.gameState == 1){
+		}else if(this.gameState == 1){
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 25));
 			g2.drawString("Number of Lives: " + player.getLives() , 50, 50);
 			g2.drawString("Number of Coins: " + this.numberOfCoins , 300, 50);
@@ -180,15 +198,12 @@ public void restartGame() {
 			if(o.Draw){
 				o.drawnOn(g2);
 			}
-		//	System.out.println("level x " + o.x + "level y " + o.y );
 		}
-	
+
 		}
 		if(gameOver() == true) {
-			System.out.println("This works");
-			g2.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-			g2.drawString("Winner!"  , 100, 100);
-			System.out.println("gameOver");
+			g2.setFont(new Font("TimesRoman", Font.PLAIN, 245));
+			g2.drawString("WINNER!"  , 1, 500);
 			gameState = 0;
 		}
 }

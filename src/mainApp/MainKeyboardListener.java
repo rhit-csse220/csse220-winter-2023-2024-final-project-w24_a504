@@ -5,39 +5,32 @@ import java.awt.event.KeyListener;
 //import java.io.File;
 //import java.io.FileNotFoundException;
 import java.util.ArrayList;
-//import java.util.Scanner;
 
-//import javax.swing.Timer;
-
+/**
+ * Class: MainKeyBoardListener
+ * @author W24_a504
+ * Purpose: checks if a user command is pressed
+ */
 public class MainKeyboardListener implements KeyListener {
 		public Level level;
 	    private Player player;
-//	    private Component com;
-	    private UpdateActionListener listener;
-		private static final int ITEM_WIDTH = 100;
-		private static final int ITEM_HEIGHT = 90;
-	//	private int levelIndexer;
-		private boolean isPressed;
 		public int vertical_speed = 10;
 		public int terminal_velocity = 300;
-		private int gravity;
-//		private ArrayList<Barrier> barrier;
-//		private ArrayList<Player> player;
-		private ArrayList<Obstacle> obstacles =  new ArrayList<>();;
-		private static final int NUMBER_OF_LEVELS = 2;
+		private static final int NUMBER_OF_LEVELS = 5;
 		
-		
+		/**
+		 * ensures: a KeyListener event is created 
+		 * @param player
+		 * @param level
+		 */
 		public MainKeyboardListener(Player player, Level level) {
-//			barrier = new ArrayList<Barrier>();
-		//	obstacles = new ArrayList<Obstacle>();
-			this.isPressed = false;
 			this.player = player;
 			this.level = level;
 			
 		}
 		@Override
 		public void keyPressed(KeyEvent e) { 
-//			System.out.print("IM GETTIN PRESSED");
+
 			  if(!(player.isMoveable())) {
 		        	return;
 		        }
@@ -45,25 +38,18 @@ public class MainKeyboardListener implements KeyListener {
 		        switch (currentKey) {
 		        // the code below moves the player 
 		      
-		            case KeyEvent.VK_UP:
-//		            	if( player.getY() >= 50 && player.getY() <= 875) {
-		              
+		            case KeyEvent.VK_UP:	         
 		            	player.setY(player.getY() - 50);
 		               break;
-//		            	}
-//		            	player.setY(player.getY() - 10);
-//		               System.out.println(" up Player's new position: X=" + player.getX() + ", Y=" + player.getY());
-		               
-		                
-		                
+	                
 		            case KeyEvent.VK_DOWN:
 		            	player.setY(player.getY() + 10);
-		            	//System.out.println(" down Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+		            	
 		                break;
 		                
 		            case KeyEvent.VK_LEFT:
 		            	player.setX(player.getX() - 15);
-		            	//System.out.println(" left Player's new position: X=" + player.getX() + ", Y=" + player.getY());
+		            	
 		                break;
 		                
 		            case KeyEvent.VK_RIGHT:
@@ -71,15 +57,14 @@ public class MainKeyboardListener implements KeyListener {
 		            	player.setX(player.getX() + 10);
 		            	break;
 		            	}
-		            	//System.out.println(" right Player's new position: X=" + player.getX() + ", Y=" + player.getY());
-		                
+		            	// this code starts the game when the spae key is pressed
 		            case KeyEvent.VK_SPACE:
 		            	this.level.gameState = 1;
 		                
 		            	break;
 		     
 		                
-		        //the code below loads level 		
+		        //the code below loads level based on user key press	
 		        case KeyEvent.VK_U:
 				System.out.print("U is selected");
 				if(this.level.levelIndexer < NUMBER_OF_LEVELS) {
@@ -88,10 +73,9 @@ public class MainKeyboardListener implements KeyListener {
 					try {
 						this.level.readFile(NameOfFile);
 					} catch (InvalidLevelFormatException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					//break;
+					
 				}
 				break;
 				
@@ -118,14 +102,10 @@ public class MainKeyboardListener implements KeyListener {
 	
 		@Override
 		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-
 			}
 			
 		@Override
 		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
 		}
 	
 }

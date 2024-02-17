@@ -11,20 +11,14 @@ public class MissileY extends Obstacle  {
 
 	public MissileY(double x, double y) {
 		super(x, y, MISSILE_COLOR);
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	public void toggleMissileDirection() {
-		this.dy *= -1;
-		// TODO Auto-generated method stub
 	}
 
+	public void toggleMissileDirection() {
+		this.dy *= -1;
+	}
 
 	@Override
 	public void missileMovement() {
-		// TODO Auto-generated method stub
 		if ( getY() > 1000 - 50 ) {
 			setY(this.dy*(1000-50));
 	} else if (getY() < 0 ) {
@@ -43,10 +37,7 @@ public class MissileY extends Obstacle  {
 
 	@Override
 	public boolean onCollision(Player player) {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
 
 }

@@ -1,0 +1,8 @@
+Extra features:
+Displaying lives and coin count with real time updating
+Start screen 
+Start command (key Event)
+A message is displayed on the screen when the game is won 
+Regenerating missiles when they move off the screen
+User override with keyEvent, all arrow keys will move the player in the intended manner 
+Automatic movement acceleration up to a certain value 

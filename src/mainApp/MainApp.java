@@ -11,18 +11,14 @@ import java.awt.event.ActionListener;
 
 /**
  * Class: MainApp
- * @author W504
+ * @author W24_a504
  * <br>Purpose: Top level class for CSSE220 Project containing main method 
  * <br>Restrictions: None
  */
 public class MainApp{
-	
-	private static final int PANEL_HEIGHT = 800;
-	private static final int PANEL_WIDTH = 800;
 	public static final int startingLevel = 1;
 	
 	public MainApp() throws InvalidLevelFormatException {
-
         JFrame frame = new JFrame("JPJR");
         frame.setSize(1000,1000);
         MainAppComponent component = new MainAppComponent(frame);

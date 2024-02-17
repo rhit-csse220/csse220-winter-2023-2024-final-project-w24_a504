@@ -13,9 +13,7 @@ public QuitGameListener(JFrame main) {
 }
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		this.main.dispatchEvent(new WindowEvent(this.main, WindowEvent.WINDOW_CLOSING));
-
 	}
 
 }

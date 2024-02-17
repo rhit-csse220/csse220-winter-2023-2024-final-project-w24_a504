@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 public class NewGameListener implements ActionListener {
 private JFrame frame;
 private Level level;
-private String FileName;
 
 public NewGameListener(Level level, JFrame frame ) {
 	this.frame = frame;
@@ -18,10 +17,8 @@ public NewGameListener(Level level, JFrame frame ) {
 }
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		this.level.restartGame();
-		try {
-			
+		try {	
 			this.level.readFile("levels/level1.txt");
 			
 		}catch(InvalidLevelFormatException e1) {

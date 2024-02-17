@@ -10,26 +10,15 @@ public class Coin extends Obstacle {
 	public Coin(int x, int y) {
 		super(x, y, COIN_COLOR);
 		this.isCollected = false;
-		// TODO Auto-generated constructor stub
-	}
-//	@Override
-//	public void drawOn(Graphics2D g) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-	@Override
-	public void missileMovement() {
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
-	public void toggleMissileDirection() {
-		// TODO Auto-generated method stub
-		
+	public void missileMovement() {	
+	}
+	@Override
+	public void toggleMissileDirection() {	
 	}
 	@Override
 	public boolean onCollision(Player player) {
-		// TODO Auto-generated method stub
 		if(!this.isCollected) {
 			this.toggleDraw();
 			this.isCollected = true;
@@ -39,3 +28,4 @@ public class Coin extends Obstacle {
 	
 
 }
+

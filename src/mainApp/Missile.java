@@ -10,16 +10,9 @@ public class Missile extends Obstacle  {
 	private double accel = 0;
 	private double horizontal_speed = .2;
 	private double terminal_velocity  = 5;
-	private double y;
-	private double x;
 	public double dx;
-	private JFrame frame;
 	public Missile(double x, double y) {
 		super(x, y, MISSILE_COLOR);
-//		this.x = x;
-//		this.y = y;
-//		this.frame = frame;
-		// TODO Auto-generated constructor stub
 	}
 	public void toggleMissileDirection() {
 		this.dx *= -1;
@@ -42,27 +35,6 @@ public class Missile extends Obstacle  {
 	}
 	@Override
 	public boolean onCollision(Player player) {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
-
-//	public void setX(double i) {
-//		// TODO Auto-generated method stub
-//		this.x = i;
-//		
-//	}
-//	public void setY(double i) {
-//		// TODO Auto-generated method stub
-//		this.y = i;
-//		
-//	}
-//	public double getX() {
-//		// TODO Auto-generated method stub
-//		return x;
-//	}
-//	public double getY() {
-//		// TODO Auto-generated method stub
-//		return y;
-//	}
 }
